@@ -10,9 +10,13 @@ module.exports = {
 
   attributes: {
 
-    fName : { type: 'text' },
-    lName : { type: 'text' },
+    user : { type: 'text' },
+    email : { type: 'text' },
     password: { type: 'string'},
+    content: {type:'string'}
+    
+    
+
     
 
   }
