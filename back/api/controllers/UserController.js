@@ -9,24 +9,27 @@ module.exports = {
 
     login: function (req, res){
 
-        const data = req.body;
+        const postmanRequest = req.allParams();
 
         // let username = req.param('user'),
         //     password = req.param('password');
 
-        if (!data.username){
+        if (!postmanRequest.username){
             return res.badRequest({err:'invalid username'});
         }
-        if(!data.password){
+        if(!postmanRequest.password){
             return res.badRequest({err:'invalid password'});
         }
 
-        User.findOne({user: data.username})
-        .then((user) => {
-            if (!user) {
+        User.findOne({user: postmanRequest.username})
+        .then((userIzModela) => {
+            if (!userIzModela) {
                 return res.notFound('User not found!');
             }
-            return res.ok('User logged in!');
+
+            if (userIzModela.password === postmanRequest.password) return res.ok('User logged in!');
+
+            return res.badRequest('Bad password');
         })
         .catch((err) => {
             return res.serverError('Somebody blew the server!');
