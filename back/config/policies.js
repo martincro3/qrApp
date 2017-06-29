@@ -48,7 +48,6 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
     '*': false,
-    'login': true,
-    'signup': true
+    'login': true
 	}
 };
