@@ -27,8 +27,17 @@ module.exports = {
                 return res.notFound('User not found!');
             }
 
-            if (userIzModela.password === requestIzPostmana.password){
-                return res.ok('User logged in!');
+            if (userIzModela.password === requestIzPostmana.password && userIzModela.user === requestIzPostmana.username ){
+                if (userIzModela.isAdmin){
+                    return res.json({
+                        isAdmin:userIzModela.isAdmin, username:userIzModela.user
+                    })
+                }
+
+                if (!userIzModela.isAdmin){
+                    return res.ok('User logged in!');
+                }
+
             }
 
             else{

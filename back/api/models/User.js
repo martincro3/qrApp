@@ -13,7 +13,8 @@ module.exports = {
     user : { type: 'string' },
     email : { type: 'string' },
     password: { type: 'string'},
-    content: {type:'string'}
+    content: {type:'string'},
+    isAdmin: {type:'boolean'}
     
     
 
