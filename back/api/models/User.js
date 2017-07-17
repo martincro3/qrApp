@@ -14,7 +14,8 @@ module.exports = {
     email : { type: 'string' },
     password: { type: 'string'},
     content: {type:'string'},
-    isAdmin: {type:'boolean'}
+    isAdmin: {type:'boolean',
+              defaultsTo:false}
     
     
 
