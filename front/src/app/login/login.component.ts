@@ -20,7 +20,8 @@ export class LoginComponent  {
   username:string;
   password:string;
   message:any;
-  isAdmin:any;
+  isAdmin:boolean;
+  
 
   ngOnInit() {
   }
@@ -30,11 +31,10 @@ export class LoginComponent  {
                    .map((res: Response)=> {
                      this.message = res.text()
                      this.isAdmin = res.json().isAdmin
-                     if (this.isAdmin===true){
-                       this.router.navigate(['/admin'])
-                     }
+                     
                     })
                    .subscribe(result => console.log(result))
+                   
 }
   
 
