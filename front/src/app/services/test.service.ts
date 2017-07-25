@@ -10,8 +10,25 @@ import {Router} from '@angular/router';
 
 export class TestService {
     isAdmin:boolean;
+    message:any;
     constructor(
         private http: Http,
         private router: Router
     ){}
+
+    Login(username,password){
+        return this.http.post('http://localhost:1337/login', {username,password})
+                   .map((res: Response)=> {
+                        //console.log(res);
+                        this.message = res.text()
+                        this.isAdmin = res.json().isAdmin
+                        console.log(this.isAdmin)
+                        if (this.isAdmin===true){
+                            this.router.navigate(['/admin'])
+                        }
+                        else{
+                            this.router.navigate(['/user'])
+                        }
+                    })
+    }
 }

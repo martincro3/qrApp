@@ -8,6 +8,8 @@ import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
+import { TestService} from 'app/services/test.service';
+import { routing } from 'app/app.routing-model';
 
 
 @NgModule({
@@ -23,9 +25,10 @@ import { LandingComponent } from './landing/landing.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
-  providers: [HttpModule],
+  providers: [HttpModule,TestService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
