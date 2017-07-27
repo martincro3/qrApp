@@ -28,7 +28,7 @@ module.exports = {
             }
 
             if (userIzModela.password === requestIzPostmana.password && userIzModela.user === requestIzPostmana.username ){
-                
+                    
                     return res.json({
                         isAdmin:userIzModela.isAdmin, username:userIzModela.user
                     })
