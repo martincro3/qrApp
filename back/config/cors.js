@@ -37,7 +37,8 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  // allRoutes: false,
+  allRoutes: true, // Josip
+
 
   /***************************************************************************
   *                                                                          *
@@ -47,7 +48,7 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  // origin: '*',
+  origin: '*', // Josip
 
   /***************************************************************************
   *                                                                          *
@@ -55,7 +56,9 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  // credentials: true,
+
+  credentials: false,
+ // josip
 
   /***************************************************************************
   *                                                                          *
@@ -64,7 +67,7 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  // methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+ methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH',
 
   /***************************************************************************
   *                                                                          *
@@ -73,6 +76,8 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  // headers: 'content-type'
+//  headers: 'Origin, X-Requested-With, Content-Type, Accept, Authorization, If-Modified-Since, Cache-Control, Pragma, token, passwordRecoveryToken'
+ headers: 'Origin, X-Requested-With, Content-Type, Accept, Authorization, If-Modified-Since, Cache-Control, Pragma'
+
 
 };

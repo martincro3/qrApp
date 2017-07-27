@@ -1,5 +1,12 @@
-<form #loginForma="ngForm">
+<div class="logInForma">
+  <h2>Log in</h2>
+  <form #loginForma="ngForm">
   <label >Username</label><input type="text" [(ngModel)]="username" name="username"> 
   <label >Password</label><input type="password" [(ngModel)]="password" name="pasword">
-  <button type="submit" (click)="onLogin(username,password)">Stisni me!</button>
-</form>
+  <button type="submit" (click)="onLogin(username,password)">LOGIRAJ ME</button>
+  </form>
+  <p>{{this.username}}</p><p>{{this.password}}</p>
+  
+  <p>{{this.testService.message}}</p>
+  
+</div>

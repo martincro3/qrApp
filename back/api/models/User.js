@@ -15,7 +15,10 @@ module.exports = {
     password: { type: 'string'},
     content: {type:'string'},
     isAdmin: {type:'boolean',
+              defaultsTo:false},
+    isLogged: {type:'boolean',
               defaultsTo:false}
+    
     
     
 

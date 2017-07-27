@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   result:any;
   res:any;
   message1:any;
+  loggedIn:boolean;
   
   
   
@@ -35,9 +36,16 @@ export class LoginComponent implements OnInit {
       this.testService.Login(this.username,this.password)
         .subscribe(result =>  console.log(this.testService.message)
      
-        )};
-                   
+        )}
+
+
 }
+
+
+
+
+                   
+
 
 
 

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.menu {
+    
+    height:10%;
+    width:100%;
+    color:red; 
+    
+
+    
+    
+    
+}
+.right {
+    
+    float:right;
+    
+}
+
+.content{
+    position:absolute;
+    display:block;
+    float:left;
+    top:10%;
+    left:20%;
+}

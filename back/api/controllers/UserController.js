@@ -7,46 +7,42 @@
 
 module.exports = {
 
-    login: function (req, res){
+    login: function (req, res) {
 
-        const requestIzPostmana = req.allParams();
+        const request = req.allParams();
 
         // let username = req.param('user'),
         //     password = req.param('password');
 
-        if (!requestIzPostmana.username){
-            return res.badRequest({err:'invalid username'});
+        if (!request.username) {
+            return res.badRequest({ err: 'invalid username' });
         }
-        if(!requestIzPostmana.password){
-            return res.badRequest({err:'invalid password'});
+        if (!request.password) {
+            return res.badRequest({ err: 'invalid password' });
         }
 
-        User.findOne({user: requestIzPostmana.username})
-        .then((userIzModela) => {
-            if (!userIzModela) {
-                return res.notFound('User not found!');
-            }
 
-            if (userIzModela.password === requestIzPostmana.password && userIzModela.user === requestIzPostmana.username ){
-                if (userIzModela.isAdmin){
-                    return res.json({
-                        isAdmin:userIzModela.isAdmin, username:userIzModela.user
-                    })
-                }
+        // if (!foundUser) {
+        //     return res.notFound('User not found!');
+        // }
 
-                if (!userIzModela.isAdmin){
-                    return res.ok('User logged in!');
-                }
+        // if (foundUser.password === request.password && foundUser.user === request.username) {
 
-            }
+        User.update({ user: request.username }, { isLogged: true })
+            .exec(function (err, updatedUser) {
+                if (err) return res.negotiate(err);
+                if (!updatedUser) return res.notFound('User not found!');
+                return res.json({
+                    // isAdmin: updatedUser.isAdmin,
+                    // isLogged: updatedUser.isLogged
+                    updatedUser
+                });
+            })
+        // }
+        // else {
+        //     return res.badRequest('Bad password');
+        // }
 
-            else{
-                return res.badRequest('Bad password');
-            }
-        })
-        .catch((err) => {
-            return res.serverError('Somebody blew the server!');
-        });
     }
 };
 
