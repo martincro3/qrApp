@@ -32,7 +32,8 @@ module.exports = {
                     userIzModela.isLogged = true;
                     userIzModela.save(function(err) {
                         return res.json({
-                            isAdmin:userIzModela.isAdmin, username:userIzModela.user
+                            isAdmin:userIzModela.isAdmin, username:userIzModela.user, isLogged:userIzModela.isLogged
+
                         })
                     });
                 

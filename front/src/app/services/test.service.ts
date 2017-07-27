@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class TestService {
     isAdmin:boolean;
     message:any;
+    isLogged:boolean;
     constructor(
         private http: Http,
         private router: Router
@@ -22,6 +23,7 @@ export class TestService {
                         //console.log(res);
                         this.message = res.text()
                         this.isAdmin = res.json().isAdmin
+                        this.isLogged = res.json().isLogged
                         console.log(this.isAdmin)
                         if (this.isAdmin===true){
                             this.router.navigate(['/admin'])
