@@ -22,11 +22,7 @@ module.exports = {
         }
 
 
-        // if (!foundUser) {
-        //     return res.notFound('User not found!');
-        // }
-
-        // if (foundUser.password === request.password && foundUser.user === request.username) {
+       
 
         User.update({ user: request.username }, { isLogged: true })
             .exec(function (err, updatedUser) {
@@ -38,10 +34,7 @@ module.exports = {
                     updatedUser
                 });
             })
-        // }
-        // else {
-        //     return res.badRequest('Bad password');
-        // }
+       
 
     }
 };
