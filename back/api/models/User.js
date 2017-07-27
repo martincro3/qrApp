@@ -14,6 +14,8 @@ module.exports = {
     email : { type: 'string' },
     password: { type: 'string'},
     content: {type:'string'},
+    isLogged: {type:'boolean',
+              defaultsTo:false}, 
     isAdmin: {type:'boolean',
               defaultsTo:false}
     

@@ -29,9 +29,12 @@ module.exports = {
 
             if (userIzModela.password === requestIzPostmana.password && userIzModela.user === requestIzPostmana.username ){
                     
-                    return res.json({
-                        isAdmin:userIzModela.isAdmin, username:userIzModela.user
-                    })
+                    userIzModela.isLogged = true;
+                    userIzModela.save(function(err) {
+                        return res.json({
+                            isAdmin:userIzModela.isAdmin, username:userIzModela.user
+                        })
+                    });
                 
             }
 
